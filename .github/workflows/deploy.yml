@@ -10,8 +10,6 @@ on:
         type: choice
         options:
           - dev
-          - qa
-          - uat
           - prod
 
 jobs:
@@ -35,25 +33,25 @@ jobs:
       - name: Build project
         run: npm run build # Adjust this to your build command
 
-      - name: Deploy based on environment
+      # - name: Deploy to GitHub Pages (Production)
+      #   if: ${{ inputs.environment == 'prod' }}
+      #   uses: peaceiris/actions-gh-pages@v4
+      #   with:
+      #    github_token: ${{ secrets.GITHUB_TOKEN }}
+      #    publish_dir: ./build  # Adjust to your build output directory
+      #    publish_branch: gh-pages  # Production deployment
+
+      # - name: Deploy to GitHub Pages (Development)
+      #   if: ${{ inputs.environment == 'dev' }}
+      #   uses: peaceiris/actions-gh-pages@v4
+      #   with:
+      #     github_token: ${{ secrets.GITHUB_TOKEN }}
+      #     publish_dir: ./build  # Adjust to your build output directory
+      #     publish_branch: gh-pages  # Development deployment
+
+      - name: Deploy with gh-pages
         run: |
-          if [ "${{ github.event.inputs.environment }}" == "dev" ]; then
-            echo "Deploying to Dev environment"
-            # Add your dev deployment command here
-          elif [ "${{ github.event.inputs.environment }}" == "qa" ]; then
-            echo "Deploying to QA environment"
-            # Add your QA deployment command here
-          elif [ "${{ github.event.inputs.environment }}" == "uat" ]; then
-            echo "Deploying to UAT environment"
-            # Add your UAT deployment command here
-          elif [ "${{ github.event.inputs.environment }}" == "prod" ]; then
-            echo "Deploying to Production environment"
-            # Add your Production deployment command here
-          fi
-          - name: Deploy with gh-pages
-          run: |
-            git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
-           npx gh-pages -d build -u "github-actions-bot <support+actions@github.com>"
-           env:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-         
+         git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
+         npx gh-pages -d build -u "github-actions-bot <support+actions@github.com>"
+        env:
+         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
