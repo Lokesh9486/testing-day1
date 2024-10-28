@@ -33,18 +33,18 @@ jobs:
       - name: Build project
         run: npm run build # Adjust this to your build command
 
-      - name: Deploy to GitHub Pages (Production)
-        if: ${{ inputs.environment == 'prod' }}
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-         github_token: ${{ secrets.GITHUB_TOKEN }}
-         publish_dir: ./build  # Adjust to your build output directory
-         publish_branch: gh-pages  # Production deployment
+      # - name: Deploy to GitHub Pages (Production)
+      #   if: ${{ inputs.environment == 'prod' }}
+      #   uses: peaceiris/actions-gh-pages@v4
+      #   with:
+      #    github_token: ${{ secrets.GITHUB_TOKEN }}
+      #    publish_dir: ./build  # Adjust to your build output directory
+      #    publish_branch: gh-pages  # Production deployment
 
-      - name: Deploy to GitHub Pages (Development)
-        if: ${{ inputs.environment == 'dev' }}
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build  # Adjust to your build output directory
-          publish_branch: gh-pages  # Development deployment
+      # - name: Deploy to GitHub Pages (Development)
+      #   if: ${{ inputs.environment == 'dev' }}
+      #   uses: peaceiris/actions-gh-pages@v4
+      #   with:
+      #     github_token: ${{ secrets.GITHUB_TOKEN }}
+      #     publish_dir: ./build  # Adjust to your build output directory
+      #     publish_branch: gh-pages  # Development deployment
