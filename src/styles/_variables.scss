@@ -1,4 +1,33 @@
 
+// @font-face {
+//   font-family:dmsans-regular;
+//   src: url("/assets/fonts/DMSans-Bold.ttf");
+// }
+
+
+// @font-face {
+//   font-family:dmsans-bold;
+//   src: url("/assets/fonts/DMSans-Bold.ttf");
+// }
+// @font-face {
+//   font-family:dmsans-light;
+//   src: url("/assets/fonts/DMSans-Light.ttf");
+// }
+// @font-face {
+//   font-family:dmsans-light-italic;
+//   src: url("/assets/fonts/DMSans-LightItalic.ttf");
+// }
+// @font-face {
+//   font-family:dmsans-medium;
+//   src: url("/assets/fonts/DMSans-Medium.ttf");
+// }
+
+
+
+*{
+  font-family: dmsans-regular;
+}
+
 :root{
     --fs1: clamp(0.625px, 1vw * 100 / 1920, 1px);
     --fs2: clamp(1.25px, 2vw * 100 / 1920, 2px);

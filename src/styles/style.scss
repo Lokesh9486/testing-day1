@@ -1,8 +1,8 @@
-@import "variables.scss";
+@use "variables";
 
-@import "commonstyle.scss";
+@use "commonstyle";
 
-@import "components/counter.scss";
-@import "components/input.scss";
+@use "components/counter";
+@use "components/input";
 
-@import "components/header.scss";
+@use "components/header";
